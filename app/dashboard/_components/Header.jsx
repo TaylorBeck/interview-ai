@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import Image from "next/image"
 import { ClerkLoading, ClerkLoaded, UserButton } from '@clerk/nextjs'
 import { usePathname } from 'next/navigation'
@@ -8,16 +8,13 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 function Header() {
   const path = usePathname()
-  useEffect(() => {
-    console.log(path)
-  }, [])
 
   const menuItemStyle = 'hover:text-primary hover:font-semibold hover:cursor-pointer transition-all'
 
   return (
     <div className='flex justify-between items-center bg-secondary shadow-sm p-4'>
       <div className='flex items-center gap-3'>
-        <Image src={'/logo.svg'} height={60} width={60} alt='logo' />
+        <Image src={'/logo.svg'} height={60} width={60} alt='logo' style={{ width: '100%', height: 'auto' }} />
         <h1 className='font-bold text-2xl text-[#3E488F]'><span className='font-normal'>Interview</span>AI</h1>
       </div>
       <ul className='hidden md:flex gap-6'>
