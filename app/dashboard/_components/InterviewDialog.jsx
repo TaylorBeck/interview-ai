@@ -38,7 +38,7 @@ function InterviewDialog({ isOpen, onClose }) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-xl">
+      <DialogContent className="max-h-[90vh] max-w-xl">
         <DialogHeader>
           <DialogTitle className="text-2xl">Create a Mock Interview</DialogTitle>
           <DialogDescription>
@@ -63,7 +63,7 @@ function InterviewDialog({ isOpen, onClose }) {
             <Label htmlFor='job-description'>Job Description</Label>
             <Textarea
               id='job-description'
-              className="min-h-[120px] mt-2"
+              className="min-h-[180px] xs:min-h-[120px] max-h-[334px] mt-2"
               placeholder={`Implementing visual elements that users see and interact with in a web application. Translating UI/UX design wireframes into actual code. Ensuring the technical feasibility of UI/UX designs. Optimizing application for maximum speed and scalability. Proficiency in HTML, CSS, JavaScript, and frameworks such as React or Angular is required.`}
               onChange={(event) => setJobDescription(event.target.value)}
               required
