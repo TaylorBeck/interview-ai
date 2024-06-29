@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 
+import { chatSession } from '@/utils/gemini'
+
+import { useUser } from '@clerk/nextjs'
+
 import {
   Dialog,
   DialogContent,
@@ -19,21 +23,59 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
+import { toast } from "sonner"
 import {
   WandSparkles,
   LoaderCircle
 } from 'lucide-react'
 
+import { db } from '@/utils/db'
+import { Interview } from '@/utils/schema'
+import { v4 as uuid } from 'uuid'
+
+import dayjs from 'dayjs'
+
 function InterviewDialog({ isOpen, onClose }) {
+  const { user } = useUser()
   const [jobTitle, setJobTitle] = useState('')
   const [jobDescription, setJobDescription] = useState('')
   const [yearsOfExperience, setYearsOfExperience] = useState('0')
   const [loading, setLoading] = useState(false)
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault()
 
     setLoading(true);
+
+    if (jobTitle.length > 0 && jobDescription.length > 0) {
+      const prompt = `Based on this Job Title, Job Description, and Years of Experience, return 2 technical interview questions that each contain a 'question' and an 'answer'. From the Job Description, extract specific frameworks and programming languages that are most relevant to this job. Avoid generic questions and focus on specific technical questions relevant to the Job Title, framework(s) and language(s). {job_title: ${jobTitle},job_description: ${jobDescription},years_of_experience: ${yearsOfExperience}`
+
+      const data = await chatSession.sendMessage(prompt)
+  
+      const json = await JSON.parse(data.response.text());
+
+      if (json) {
+        const response = await db.insert(Interview).values({
+          interviewId: uuid(),
+          response: json,
+          jobTitle: jobTitle,
+          jobDescription: jobDescription,
+          jobExperience: yearsOfExperience,
+          createdBy: user.primaryEmailAddress.emailAddress,
+          createdAt: dayjs()
+        }).returning({
+          interviewId: Interview.interviewId
+        })
+  
+        setLoading(false)
+
+        toast("Interview successfully created!", {
+          description: jobTitle
+        })
+
+        onClose()
+      }
+    }
   }
 
   return (
@@ -56,6 +98,7 @@ function InterviewDialog({ isOpen, onClose }) {
               placeholder='Frontend Developer'
               onChange={(event) => setJobTitle(event.target.value)}
               required
+              disabled={loading}
             />
           </div>
 
@@ -67,11 +110,12 @@ function InterviewDialog({ isOpen, onClose }) {
               placeholder={`Implementing visual elements that users see and interact with in a web application. Translating UI/UX design wireframes into actual code. Ensuring the technical feasibility of UI/UX designs. Optimizing application for maximum speed and scalability. Proficiency in HTML, CSS, JavaScript, and frameworks such as React or Angular is required.`}
               onChange={(event) => setJobDescription(event.target.value)}
               required
+              disabled={loading}
             />
           </div>
 
           <Label htmlFor='yoe'>Years of Experience</Label>
-          <Select onValueChange={value => setYearsOfExperience(value)} value={yearsOfExperience}>
+          <Select onValueChange={value => setYearsOfExperience(value)} value={yearsOfExperience} disabled={loading}>
             <SelectTrigger className="w-[135px] mt-2">
               <SelectValue placeholder="Select years" />
             </SelectTrigger>
