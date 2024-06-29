@@ -16,7 +16,7 @@ export default function SignInPage() {
           <div className="hidden lg:relative lg:block lg:p-12">
             <a className="block text-white" href="#">
               <span className="sr-only">Home</span>
-              <Image src={'/logo.svg'} width={40} height={40} style={{ width: '40px', height: '40px' }} />
+              <Image src={'/logo.svg'} width={40} height={40} style={{ width: '40px', height: '40px' }} alt='logo' />
             </a>
 
             <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
@@ -29,7 +29,7 @@ export default function SignInPage() {
           </div>
         </section>
 
-        <main
+        <div
           className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
         >
           <div className="max-w-xl lg:max-w-3xl">
@@ -39,7 +39,7 @@ export default function SignInPage() {
                 href="#"
               >
                 <span className="sr-only">Home</span>
-                <Image src={'/logo.svg'} width={60} height={60} style={{ width: '60px', height: '60px' }} />
+                <Image src={'/logo.svg'} width={60} height={60} style={{ width: '60px', height: '60px' }} alt='logo' />
               </a>
 
               <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
@@ -55,7 +55,7 @@ export default function SignInPage() {
               <SignIn />
             </div>
           </div>
-        </main>
+        </div>
       </div>
     </section>
   )

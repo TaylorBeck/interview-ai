@@ -16,7 +16,7 @@ function Dashboard() {
       </div>
 
       <div className="flex flex-col justify-center items-center h-[400px] border-2 border-dashed rounded-xl">
-        <Image src={'/person-list.svg'} height={300} width={300} style={{ width: '300px', height: '300px' }} />
+        <Image src={'/person-list.svg'} height={300} width={300} style={{ width: '300px', height: '300px' }} alt='logo' />
         <p className="text-slate-400">You don't have any interviews, yet...</p>
       </div>
     </div>

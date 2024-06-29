@@ -16,7 +16,7 @@ function Header() {
   return (
     <div className='flex justify-between items-center bg-secondary shadow-sm p-4'>
       <div className='flex items-center gap-3'>
-        <Image src={'/logo.svg'} height={60} width={60} alt='logo' style={{ width: '100%', height: 'auto' }} />
+        <Image src={'/logo.svg'} height={60} width={60} style={{ width: '100%', height: 'auto' }} alt='logo' />
         <h1 className='font-bold text-2xl text-[#3E488F] hidden xs:block'><span className='font-normal'>Interview</span>AI</h1>
       </div>
       <ul className='hidden md:flex gap-6'>

@@ -9,5 +9,4 @@ export const Interview = pgTable('interview', {
   createdBy:varchar('createdBy').notNull(),
   createdAt:varchar('createdAt').notNull(),
   interviewId:varchar('interviewId').notNull()
-
 })
