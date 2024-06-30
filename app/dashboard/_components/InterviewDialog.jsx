@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { chatSession } from '@/utils/gemini'
+import { useRouter } from 'next/navigation';
 
-import { useUser } from '@clerk/nextjs'
+import { chatSession } from '@/utils/gemini';
+
+import { useUser } from '@clerk/nextjs';
 
 import {
   Dialog,
@@ -10,10 +12,10 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle
-} from '@/components/ui/dialog'
-import { Label } from '@/components/ui/label'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+} from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 import {
   Select,
   SelectContent,
@@ -21,13 +23,13 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { Button } from '@/components/ui/button'
-import { toast } from "sonner"
+} from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { toast } from "sonner";
 import {
   WandSparkles,
   LoaderCircle
-} from 'lucide-react'
+} from 'lucide-react';
 
 import { db } from '@/utils/db'
 import { Interview } from '@/utils/schema'
@@ -36,21 +38,21 @@ import { v4 as uuid } from 'uuid'
 import dayjs from 'dayjs'
 
 function InterviewDialog({ isOpen, onClose }) {
-  const { user } = useUser()
-  const [jobTitle, setJobTitle] = useState('')
-  const [jobDescription, setJobDescription] = useState('')
-  const [yearsOfExperience, setYearsOfExperience] = useState('0')
-  const [loading, setLoading] = useState(false)
+  const { user } = useUser();
+  const [jobTitle, setJobTitle] = useState('');
+  const [jobDescription, setJobDescription] = useState('');
+  const [yearsOfExperience, setYearsOfExperience] = useState('0');
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     setLoading(true);
 
     if (jobTitle.length > 0 && jobDescription.length > 0) {
-      const prompt = `Based on this Job Title, Job Description, and Years of Experience, return 2 technical interview questions that each contain a 'question' and an 'answer'. From the Job Description, extract specific frameworks and programming languages that are most relevant to this job. Avoid generic questions and focus on specific technical questions relevant to the Job Title, framework(s) and language(s). {job_title: ${jobTitle},job_description: ${jobDescription},years_of_experience: ${yearsOfExperience}`
+      const prompt = `Based on this Job Title, Job Description, and Years of Experience, return 2 technical interview questions that each contain a 'question' and an 'answer'. From the Job Description, extract specific frameworks and programming languages that are most relevant to this job. Avoid generic questions and focus on specific technical questions relevant to the Job Title, framework(s) and language(s). {job_title: ${jobTitle},job_description: ${jobDescription},years_of_experience: ${yearsOfExperience}`;
 
-      const data = await chatSession.sendMessage(prompt)
+      const data = await chatSession.sendMessage(prompt);
   
       const json = await JSON.parse(data.response.text());
 
@@ -65,15 +67,20 @@ function InterviewDialog({ isOpen, onClose }) {
           createdAt: dayjs()
         }).returning({
           interviewId: Interview.interviewId
-        })
+        });
+        const id = response[0]?.interviewId;
   
-        setLoading(false)
+        setLoading(false);
 
         toast("Interview successfully created!", {
           description: jobTitle
-        })
+        });
 
-        onClose()
+        const router = useRouter();
+        if (id) {
+          router.push(`/dashboard/interview/${id}`);
+          onClose();
+        }
       }
     }
   }
@@ -107,7 +114,7 @@ function InterviewDialog({ isOpen, onClose }) {
             <Textarea
               id='job-description'
               className="min-h-[180px] xs:min-h-[120px] max-h-[334px] mt-2"
-              placeholder={`Implementing visual elements that users see and interact with in a web application. Translating UI/UX design wireframes into actual code. Ensuring the technical feasibility of UI/UX designs. Optimizing application for maximum speed and scalability. Proficiency in HTML, CSS, JavaScript, and frameworks such as React or Angular is required.`}
+              placeholder={`React, Next.js, Node.js, Angular, Express, Flask, Vue, Ruby on Rails`}
               onChange={(event) => setJobDescription(event.target.value)}
               required
               disabled={loading}
