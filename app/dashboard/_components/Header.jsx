@@ -1,17 +1,22 @@
 'use client'
 
-import React from 'react'
-import Image from "next/image"
-import { ClerkLoading, ClerkLoaded, UserButton } from '@clerk/nextjs'
-import { usePathname } from 'next/navigation'
-import { Skeleton } from '@/components/ui/skeleton'
+import React from 'react';
+import Image from 'next/image';
+import {
+  ClerkLoading,
+  ClerkLoaded,
+  UserButton
+} from '@clerk/nextjs';
+import { usePathname } from 'next/navigation';
 
-import { Menu } from 'lucide-react'
+import { Skeleton } from '@/components/ui/skeleton';
+
+import { Menu } from 'lucide-react';
 
 function Header() {
-  const path = usePathname()
+  const path = usePathname();
 
-  const menuItemStyle = 'hover:text-primary hover:font-semibold hover:cursor-pointer transition-all'
+  const menuItemStyle = 'hover:text-primary hover:font-semibold hover:cursor-pointer transition-all';
 
   return (
     <div className='flex justify-between items-center bg-secondary shadow-sm p-4'>
@@ -21,8 +26,8 @@ function Header() {
       </div>
       <ul className='hidden md:flex gap-6'>
         <li className={`${menuItemStyle} ${path === '/dashboard'&&'text-primary font-semibold'}`}>Dashboard</li>
-        <li className={`${menuItemStyle} ${path === '/faq'&&'text-primary font-semibold'}`}>FAQ</li>
-        <li className={`${menuItemStyle} ${path === '/dashboard/pricing'&&'text-primary font-semibold'}`}>Pricing</li>
+        <li className={`${menuItemStyle} ${path === '/dashboard/interviews'&&'text-primary font-semibold'}`}>Interviews</li>
+        <li className={`${menuItemStyle} ${path === '/dashboard/jobs'&&'text-primary font-semibold'}`}>Jobs</li>
         <li className={`${menuItemStyle} ${path === 'dashboard/how'&&'text-primary font-semibold'}`}>How It Works</li>
       </ul>
       <div className='flex items-center gap-4'>
