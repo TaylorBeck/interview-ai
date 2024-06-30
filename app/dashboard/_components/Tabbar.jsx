@@ -1,13 +1,18 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Home, BriefcaseBusiness, User, Video } from 'lucide-react';
+import {
+  Home,
+  BriefcaseBusiness,
+  User,
+  Video
+} from 'lucide-react';
 
 function Tabbar({ className }) {
-  const [activeTab, setActiveTab] = useState(0)
+  const [activeTab, setActiveTab] = useState(0);
 
-  const activeClasses = 'font-semibold scale-105'
+  const activeClasses = 'font-semibold scale-105';
 
   return (
     <div className={`fixed bottom-0 w-full bg-secondary shadow-lg ${className}`}>
@@ -33,4 +38,4 @@ function Tabbar({ className }) {
   )
 }
 
-export default Tabbar
+export default Tabbar;

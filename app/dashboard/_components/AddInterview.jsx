@@ -1,9 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import { Button } from '@/components/ui/button'
-import InterviewDialog from './InterviewDialog'
+import { Button } from '@/components/ui/button';
+import InterviewDialog from './InterviewDialog';
+
+import { Plus } from 'lucide-react';
 
 function AddInterview() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -13,10 +15,13 @@ function AddInterview() {
 
   return (
     <div>  
-      <Button onClick={openDialog}>+ Add New</Button>
+      <Button onClick={openDialog}>
+        <Plus className="h-4 w-4 mr-1" />
+        Add New
+      </Button>
       <InterviewDialog isOpen={isDialogOpen} onClose={closeDialog} />
     </div>
   )
 }
 
-export default AddInterview
+export default AddInterview;
