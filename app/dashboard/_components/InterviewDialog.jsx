@@ -39,6 +39,7 @@ import dayjs from 'dayjs'
 
 function InterviewDialog({ isOpen, onClose }) {
   const { user } = useUser();
+  const router = useRouter();
   const [jobTitle, setJobTitle] = useState('');
   const [jobDescription, setJobDescription] = useState('');
   const [yearsOfExperience, setYearsOfExperience] = useState('0');
@@ -76,7 +77,6 @@ function InterviewDialog({ isOpen, onClose }) {
           description: jobTitle
         });
 
-        const router = useRouter();
         if (id) {
           router.push(`/dashboard/interview/${id}`);
           onClose();

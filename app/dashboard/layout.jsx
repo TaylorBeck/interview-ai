@@ -6,7 +6,7 @@ import Tabbar from './_components/Tabbar';
 
 function DashboardLayout({ children }) {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
       <div className="mx-5 md:mx-14 lg:mx-36">
         {children}
