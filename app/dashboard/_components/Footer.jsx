@@ -11,10 +11,10 @@ import {
 function Footer() {
   const iconStyles = 'text-gray-500  hover:text-blue-600 hover:scale-105 hover:cursor-pointer';
   return (
-    <div className='hidden mobile:flex justify-between items-center bg-slate-300 shadow-sm p-4 h-[80px]'>
+    <div className='hidden xs:flex justify-between items-center bg-slate-300 shadow-sm p-4 h-[80px]'>
       <div className="flex items-center gap-4">
         <Image src={'/logo-dark.svg'} width={50} height={50} style={{ width: '50px', height: '50px' }} alt='logo' />
-        <p class="mt-4 text-center text-sm text-gray-500 lg:mt-0 lg:text-right">
+        <p className="text-center text-sm text-gray-500 lg:mt-0 lg:text-right">
           Interview AI • Copyright &copy; 2024. All rights reserved.
         </p>
       </div>
