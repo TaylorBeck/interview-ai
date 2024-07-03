@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 
+import { useRouter } from 'next/navigation';
+
 import Image from 'next/image';
 
 import dayjs from 'dayjs';
@@ -22,6 +24,8 @@ import { Trash2, Pencil, Play } from 'lucide-react';
 function Dashboard() {
   const [interviews, setInterviews] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const router = useRouter();
 
   useEffect(() => {
     async function fetchInterviews() {
@@ -72,9 +76,9 @@ function Dashboard() {
               const createdAt = interview.createdAt.replace(/^"(.*)"$/, '$1');
 
               return (
-                <Card key={interview.id} className="shadow-md">
+                <Card key={interview.interviewId} className="shadow-md">
                   <CardHeader>
-                    <CardTitle>{interview.jobTitle}</CardTitle>
+                    <CardTitle className="truncate">{interview.jobTitle}</CardTitle>
                     <CardDescription>{dayjs(createdAt).format('MMMM D, YYYY [at] h:mm A')}</CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -85,7 +89,10 @@ function Dashboard() {
                       <Trash2 className="h-5 w-5 text-red-500 hover:cursor-pointer hover:-rotate-3" />
                       <Pencil className="h-5 w-5 text-slate-500 hover:cursor-pointer hover:scale-105" />
                     </div>
-                    <Play className="h-5 w-5 text-primary hover:cursor-pointer hover:scale-105" />
+                    <Play
+                      className="h-5 w-5 text-primary hover:cursor-pointer hover:scale-105"
+                      onClick={() => router.push(`/dashboard/interviews/${interview.interviewId}`)}
+                    />
                   </CardFooter>
                 </Card>
               );

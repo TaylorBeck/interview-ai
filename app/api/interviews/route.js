@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/utils/db';
 
+export const dynamic = 'force-dynamic';
+export const runtime = 'edge';
+
 export async function GET() {
   try {
     const interviews = await db.query.Interview.findMany();

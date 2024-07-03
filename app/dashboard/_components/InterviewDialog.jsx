@@ -113,7 +113,7 @@ function InterviewDialog({ isOpen, onClose }) {
             <Label htmlFor='job-description'>Job Description</Label>
             <Textarea
               id='job-description'
-              className="min-h-[180px] xs:min-h-[120px] max-h-[334px] mt-2"
+              className="min-h-[180px] 2xs:min-h-[120px] max-h-[334px] mt-2"
               placeholder={`React, Next.js, Node.js, Angular, Express, Flask, Vue, Ruby on Rails`}
               onChange={(event) => setJobDescription(event.target.value)}
               required
