@@ -23,4 +23,3 @@ NEXT_PUBLIC_DATABASE_URL="YOUR_DB_URL"
 
 NEXT_PUBLIC_GEMINI_API_KEY=
 ```
-<img width="1134" alt="InterviewAI-v1" src="https://github.com/TaylorBeck/interview-ai/assets/1897307/c11e6d85-34f7-405d-a3b0-757ec2376ce3">
