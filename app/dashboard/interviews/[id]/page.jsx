@@ -23,7 +23,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from '@/components/ui/alert'
+} from '@/components/ui/alert';
 
 export default function Interview() {
   const [interview, setInterview] = useState(null);
@@ -65,15 +65,15 @@ export default function Interview() {
       <div className="flex justify-between mt-12">
         <div className="flex flex-col justify-between items-start">
           {interview ?
-            <Card className="w-[400px]">
+            <Card className="flex flex-col w-[400px] h-[320px] shadow-md">
               <CardHeader>
-                <CardTitle className="mb-3">{interview.jobTitle}</CardTitle>
-                <CardDescription>{interview.jobExperience} - {interview.jobDescription}</CardDescription>
+                <CardTitle className="mb-3">{showWebcam ? 'Question 1' : interview.jobTitle}</CardTitle>
+                <CardDescription>{showWebcam ? 'Can you explain how the useEffect hook works in React? What is the difference between useEffect and useState? When would you not want to use a useEffect hook? Are there any alternatives to using a useEffect hook in a scalable application?' : interview.jobDescription}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
 
               </CardContent>
-              <CardFooter className="flex justify-between">
+              <CardFooter className="flex-grow justify-between items-end">
                 <Button variant="outline">Cancel</Button>
                 <Button
                   variant={showWebcam ? 'destructive' : ''}
@@ -144,9 +144,10 @@ export default function Interview() {
             className="absolute top-2 right-2 w-4 h-4 hover:cursor-pointer hover:scale-105 hover:-rotate-3"
             onClick={() => setShowAlert(false)}
           />
-          We never record your video. Instead, we transcribe the audio and save your answers in a text format. Your answers can be deleted or exported at any time.
+          We never save your video. Instead, we transcribe the audio and save your answers in a text format. Your answers can be deleted or exported at any time.
         </AlertDescription>
       </Alert>
     </>
   );
 }
+
