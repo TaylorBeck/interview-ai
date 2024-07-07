@@ -9,7 +9,7 @@ import { WebcamIcon, ShieldAlert, X, Play, Pause } from 'lucide-react';
 
 import {
   Skeleton
-} from '@/components/ui/skeleton';
+} from '@/components/shadcn/skeleton';
 import {
   Card,
   CardHeader,
@@ -17,13 +17,13 @@ import {
   CardDescription,
   CardContent,
   CardFooter
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+} from '@/components/shadcn/card';
+import { Button } from '@/components/shadcn/button';
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from '@/components/ui/alert';
+} from '@/components/shadcn/alert';
 
 export default function Interview() {
   const [interview, setInterview] = useState(null);

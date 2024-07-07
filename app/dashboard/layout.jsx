@@ -1,13 +1,11 @@
 import React from 'react';
 
-// import Header from './_components/Header';
-// import Footer from './_components/Footer';
-import SideNav from './_components/SideNav';
-import Tabbar from './_components/Tabbar';
+import SideNav from '../../components/ui/SideNav';
+import Tabbar from '../../components/ui/Tabbar';
 
 function DashboardLayout({ children }) {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-[#FCFCFA]">
       <SideNav />
       
       <div className="mx-5 md:mx-14 lg:mx-36">
