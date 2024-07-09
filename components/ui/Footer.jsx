@@ -19,7 +19,7 @@ function Footer() {
             Interview AI • Copyright &copy; 2024. All rights reserved.
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-3 mr-20">
           <Twitter className={iconStyles} />
           <Facebook className={iconStyles} />
           <Youtube className={iconStyles} />

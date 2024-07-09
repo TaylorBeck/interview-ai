@@ -8,8 +8,12 @@ import {
   ScrollText,
   Webcam,
   BriefcaseBusiness,
-  CircleCheck
+  CircleCheck,
+  CirclePlus,
+  CircleMinus
 } from 'lucide-react';
+
+import Footer from '@/components/ui/Footer';
 
 export default function Home() {
   return (
@@ -38,7 +42,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold sm:text-4xl">Tired of getting ghosted?</h2>
 
             <p className="mt-4 text-gray-300">
-              Use AI to generate resumes that pass Applicant Tracking Systems that recruiters are using to filter you out.
+              Over 75% of resumes get rejected by Applicant Tracking Systems. Our resumes are designed to pass these.
             </p>
           </div>
 
@@ -52,7 +56,7 @@ export default function Home() {
               <h2 className="mt-4 text-xl font-bold text-white">Resumes</h2>
 
               <p className="mt-1 text-sm text-gray-300">
-                Based on recruiter feedback, we quickly generate 5 different resumes geared specifically for the job you're applying to.
+                Based on recruiter feedback, we quickly generate different resumes geared specifically for the job you're applying to.
               </p>
             </a>
 
@@ -104,7 +108,7 @@ export default function Home() {
               <h2 className="mt-4 text-xl font-bold text-white">Feedback</h2>
 
               <p className="mt-1 text-sm text-gray-300">
-                Get immediate feedback on your interview answers with suggestions to improve your answers.
+                Get immediate feedback on your interview answers and suggestions to improve your answers.
               </p>
             </a>
 
@@ -145,7 +149,7 @@ export default function Home() {
               </h2>
 
               <p className="mt-2 sm:mt-4">
-                <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">$30 </strong>
+                <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">$37 </strong>
                 <span className="text-sm font-medium text-gray-700">/month</span>
               </p>
             </div>
@@ -193,7 +197,7 @@ export default function Home() {
               </h2>
 
               <p className="mt-2 sm:mt-4">
-                <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">$20 </strong>
+                <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">$27 </strong>
                 <span className="text-sm font-medium text-gray-700">/month</span>
               </p>
             </div>
@@ -225,7 +229,51 @@ export default function Home() {
             </a>
           </div>
         </div>
+
+        {/* Frequently Asked Questions */}
+        <div className="divide-y divide-gray-100 rounded-xl border border-gray-100 bg-white mt-16">
+          <details className="group p-6 [&_summary::-webkit-details-marker]:hidden" open>
+            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+              <h2 className="text-lg font-semibold">How does it work?</h2>
+              <span className="relative h-5 w-5 shrink-0">
+                <CirclePlus className="absolute inset-0 h-5 w-5 opacity-100 transition-opacity duration-200 group-open:opacity-0" />
+                <CircleMinus className="absolute inset-0 h-5 w-5 opacity-0 transition-opacity duration-200 group-open:opacity-100" />
+              </span>
+            </summary>
+            <p className="mt-4 leading-relaxed text-gray-700">
+              Simply copy & paste a job description into Interview Hub's dashboard and a resume and cover letter will be generated for you. Then, you can take mock video interviews to prepare and practice your soft skills.
+            </p>
+          </details>
+        
+          <details className="group p-6 [&_summary::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+              <h2 className="text-lg font-semibold">Can I download my resumes?</h2>
+              <span className="relative h-5 w-5 shrink-0">
+                <CirclePlus className="absolute inset-0 h-5 w-5 opacity-100 transition-opacity duration-200 group-open:opacity-0" />
+                <CircleMinus className="absolute inset-0 h-5 w-5 opacity-0 transition-opacity duration-200 group-open:opacity-100" />
+              </span>
+            </summary>
+            <p className="mt-4 leading-relaxed text-gray-700">
+            Yes, you can download your resumes anytime after saving them and export them as .docx and .pdf formats. We recommend mass applying with the .docx file and only using .pdf when sending your resume directly to recruiters in a direct message.
+            </p>
+          </details>
+
+          <details className="group p-6 [&_summary::-webkit-details-marker]:hidden">
+            <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900">
+              <h2 className="text-lg font-semibold">What happens when I cancel?</h2>
+              <span className="relative h-5 w-5 shrink-0">
+                <CirclePlus className="absolute inset-0 h-5 w-5 opacity-100 transition-opacity duration-200 group-open:opacity-0" />
+                <CircleMinus className="absolute inset-0 h-5 w-5 opacity-0 transition-opacity duration-200 group-open:opacity-100" />
+              </span>
+            </summary>
+            <p className="mt-4 leading-relaxed text-gray-700">
+              When you cancel your membership, you can export all of your resumes and cover letters. After canceling, all of your data will be <span className="font-medium text-red-600">permanently deleted</span>.
+            </p>
+          </details>
+        </div>
       </div>
+
+      <Footer />
       <ChatWidget />
     </>
   );
