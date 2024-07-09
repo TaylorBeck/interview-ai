@@ -267,7 +267,7 @@ export default function Home() {
               </span>
             </summary>
             <p className="mt-4 leading-relaxed text-gray-700">
-              When you cancel your membership, you can export all of your resumes and cover letters. After canceling, all of your data will be <span className="font-medium text-red-600">permanently deleted</span>.
+              When you cancel your membership, you will no longer be charged and all of your data will be <span className="font-medium text-red-600">permanently deleted</span> at the end of your billing period.
             </p>
           </details>
         </div>

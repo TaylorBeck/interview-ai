@@ -40,7 +40,7 @@ function SideNav() {
           className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
         >
           <Image className="transition-all group-hover:scale-110" src={'/logo.svg'} height={24} width={24} />
-          <span className="sr-only">Interview AI</span>
+          <span className="sr-only">Interview Hub</span>
         </Link>
         <TooltipProvider>
           <Tooltip>

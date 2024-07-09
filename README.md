@@ -1,4 +1,4 @@
-## Interview AI
+## Interview Hub
 
 1. `npm install`, then create `drizzle.config.ts` using Postgres
 ```js

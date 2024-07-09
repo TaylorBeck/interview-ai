@@ -16,7 +16,7 @@ function Footer() {
         <div className="flex items-center gap-4">
           <Image src={'/logo-dark.svg'} width={50} height={50} style={{ width: '50px', height: '50px' }} alt='logo' />
           <p className="text-center text-sm text-gray-500 lg:mt-0 lg:text-right">
-            Interview AI • Copyright &copy; 2024. All rights reserved.
+            Interview Hub • Copyright &copy; 2024. All rights reserved.
           </p>
         </div>
         <div className="flex gap-3 mr-20">

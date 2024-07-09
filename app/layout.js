@@ -7,7 +7,7 @@ import { Toaster } from "@/components/shadcn/sonner"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Interview AI",
+  title: "Interview Hub",
   description: "Take mock tech video interviews and get feedback",
 };
 
