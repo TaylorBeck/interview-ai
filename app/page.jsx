@@ -144,13 +144,13 @@ export default function Home() {
           >
             <div className="text-center">
               <h2 className="text-lg font-medium text-gray-900">
-                Pro
+                Lifetime Pro
                 <span className="sr-only">Plan</span>
               </h2>
 
               <p className="mt-2 sm:mt-4">
-                <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">$37 </strong>
-                <span className="text-sm font-medium text-gray-700">/month</span>
+                <strong className="text-3xl font-bold text-gray-900 sm:text-4xl">$97 </strong>
+                <span className="text-sm font-medium text-gray-700">once</span>
               </p>
             </div>
 
